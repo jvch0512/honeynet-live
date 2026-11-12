@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Honeynet Live</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="brand"><span class="logo">&#127855;</span> Honeynet Live <small>honeypot telemetry</small></div>
+  <div class="live"><span class="dot" id="dot"></span><span id="livetxt">connecting</span></div>
+</header>
+<section class="kpis">
+  <div class="kpi"><div class="label">Events captured</div><div class="value" id="k-total">0</div></div>
+  <div class="kpi"><div class="label">Unique attackers</div><div class="value" id="k-src">0</div></div>
+  <div class="kpi"><div class="label">Credential pairs tried</div><div class="value" id="k-cred">0</div></div>
+  <div class="kpi"><div class="label">Malware URLs</div><div class="value warn" id="k-ioc">0</div></div>
+</section>
+<main>
+  <section class="panel feed"><h2>Live capture</h2><div id="feed" class="rows"></div></section>
+  <section class="panel">
+    <h2>Activity (events per minute)</h2><canvas id="spark" width="400" height="90"></canvas>
+    <h2 class="sub">Attack types</h2><div id="kinds"></div>
+    <h2 class="sub">Top sources</h2><div id="sources"></div>
+  </section>
+  <section class="panel">
+    <h2>Credentials attackers tried</h2><div id="creds"></div>
+    <h2 class="sub">Most requested paths</h2><div id="paths"></div>
+    <h2 class="sub">Malware download URLs (defanged)</h2><div id="iocs"></div>
+  </section>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
